@@ -1,0 +1,3 @@
+FCFS : FCFS class
+main() : calls techniques
+start : init lang ng screen and menu
