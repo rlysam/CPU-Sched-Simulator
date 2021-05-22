@@ -1,0 +1,6 @@
+das.h
+*.o
+*.exe
+.vscode/
+FCFsadasS.cpp
+tests.cpp
