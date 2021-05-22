@@ -1,5 +1,5 @@
 # CPU-Sched-Simulator
-TUPM  BSCS-NS CC242 &amp; CC241L
+TUPM  BSCS-NS CC242 &amp; CC241L Project
 
 CPU Scheduling Simulator Project Operating System CC241L & CC242.
 
