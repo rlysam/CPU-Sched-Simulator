@@ -68,20 +68,6 @@ int SJF::shortest()
     // ! BUG --- Closes on other data sets when set to lastpsot
     // * FIX: FIRST EVER RUN:
 
-    // if (firstTime)
-    // {
-    //     a = FCFS::getOriginalIndex(0); //RQ[0] not necesarrility a JUTS
-    //     firstTime = false;
-    // }
-    // else
-    // {
-    //     vector<string>::iterator it;
-    //     it = std::find(RQ.begin(), RQ.end(), PID[lastpost]);
-    //     idxOfLastPos = it - RQ.begin();
-    //     //ano yung position ng lastpost sa RQ
-    //     a = FCFS::getOriginalIndex(idxOfLastPos); //RQ[0] not necesarrility a JUTS
-    // }
-
     //? lastpost === needs to be ==== LAST POS. of Pn in RQ
     //? BUT what is Pn at first?
     //? Possible FIX: gawa ng check if FIRST EVER RUN...
