@@ -29,37 +29,48 @@ int main()
         switch (getch()) // change settings, finalize or exit program
         {
         case '1':
+            system("cls");
             my_objct.set_technique();
             break;
         case '2':
+            system("cls");
             my_objct.set_num_p();
             break;
         case '3':
+            system("cls");
             my_objct.set_AT();
             break;
         case '4':
+            system("cls");
             my_objct.set_BT();
             break;
         case '5':
+            system("cls");
             my_objct.set_Prio();
             break;
         case '6':
+            system("cls");
             my_objct.set_TQ();
             break;
         case '0': //FINALIZE
-
+            {
+                //lagay dito yung pag construct sa lahat ng techniques regardless of ano pinili
+            }
+            system("cls");
             x = my_objct.finalize();
-            
+
             if (x == 1) //FCFS
             {
                 fcfs1 = FCFS(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT()); //contruct using my_object return data
-                fcfs1.displayTable(); //! replace with something that will just generate and not display...
-                fcfs1.displayGanttChart();//! then getter will pass the generated values to display class for output...
-                //* accepts pid, technique ,AT,BT,ST,ET,RT,TT, and WT
-                //! sample
-                disp(fcfs1.getvGC); display constructor (AT,BT,chart)
-                //! sample
-                cout << "\n\nPress any key to continue...";
+                fcfs1.displayTable();                                                       //! replace with something that will just generate and not display...
+                fcfs1.displayGanttChart();                                                  //! then getter will pass the generated values to display class for output...
+                // //* accepts pid, technique ,AT,BT,ST,ET,RT,TT, and WT
+                // //! sample
+                // disp(fcfs1.getvGC);
+                // display constructor(AT, BT, chart)
+                //     //! sample
+                    cout
+                    << "\n\nPress any key to continue...";
                 getch();
             }
             else if (x == 2) //SJF
@@ -70,32 +81,37 @@ int main()
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
-            // else if (x == 3) //SRTF
+            else if (x == 3) //SRTF
             {
                 srtf1 = SRTF(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT());
-                srtf1.displayTable();//*activate after vGC is gtg
+                srtf1.displayTable(); //*activate after vGC is gtg
                 srtf1.displayGanttChart();
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
-            else if (x == 4) {//NPP
-                npp1 = NPP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(),my_objct.getPriority()); //contruct using my_object return data
+            else if (x == 4)
+            {                                                                                                     //NPP
+                npp1 = NPP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getPriority()); //contruct using my_object return data
                 npp1.displayTable();
                 npp1.displayGanttChart();
-                //! sample
-                disp(npp1.getvGC); display constructor (AT,BT,chart, pt) get from NPP class and gantt chart
-                //! sample
-                cout << "\n\nPress any key to continue...";
+                // //! sample
+                // disp(npp1.getvGC);
+                // display constructor(AT, BT, chart, pt) get from NPP class and gantt chart
+                //         //! sample
+                        cout
+                    << "\n\nPress any key to continue...";
                 getch();
             }
-            else if (x == 5) {//PP
-                pp1 = PP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(),my_objct.getPriority()); 
+            else if (x == 5)
+            { //PP
+                pp1 = PP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getPriority());
                 pp1.displayTable();
                 pp1.displayGanttChart();
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
-            else if (x == 6) {//PP
+            else if (x == 6)
+            {                                                                                             //PP
                 rr1 = RR(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getTQ()); //contruct using my_object return data
                 rr1.displayTable();
                 rr1.displayGanttChart();
@@ -107,9 +123,8 @@ int main()
                 cout << "Message: Can't have zero value in BT...\nPress anykey to continue";
                 getch();
             }
-            else
-                cout << "Something went wrong...";
-                getch();
+            else cout << "Something went wrong...";
+            getch();
             break; //break case '0' (FINALIZE)
         case 'r':
             my_objct.reset(MIN); //3 minimum
