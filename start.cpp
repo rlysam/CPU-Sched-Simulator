@@ -6,18 +6,30 @@
 
 using namespace std;
 
-MainMenu::MainMenu() { }
+MainMenu::MainMenu() {}
 
 void MainMenu::updateScreen()
 {
     cout << "Welcome to CPU Scheduling technique simulation.\n\n";
     cout << "Selected Technique: " << selected_technique << endl;
     cout << "Number of Process(minimum of 3 processes): " << numProcess << endl;
-    cout << "Arrival time: "; getEntries(AT);
-    cout << endl; cout << "Burst time:   ";
-    getEntries(BT); cout << endl;
-    cout << "Priority:     "; getEntries(Priority);
-    cout << endl; cout << "Time Quantum: " << TQ << endl;
+    cout << "Arrival time: ";
+    getEntries(AT);
+    cout << endl;
+    cout << "Burst time:   ";
+    getEntries(BT);
+    cout << endl;
+
+    if (selected_technique == "Non-Preemtive Priority" || selected_technique == "Preemtive Priority")
+    {
+        cout << "Priority:     ";
+        getEntries(Priority);
+        cout << endl;
+    }
+    if (selected_technique == "Round Robin")
+    {
+        cout << "Time Quantum: " << TQ << endl;
+    }
 
     show_option();
 }
@@ -57,14 +69,16 @@ void MainMenu::reset(int n)
     for (int i = 0; i < n; i++)
     {
         AT.push_back(0);
-        BT.push_back(1);//BT always atleast 1
+        BT.push_back(1); //BT always atleast 1
         Priority.push_back(0);
     }
 }
+
 void MainMenu::printLabel(int i)
 {
     cout << "\nP" << i + 1 << ": ";
 }
+
 //change values functions
 void MainMenu::set_technique()
 {
@@ -82,49 +96,68 @@ void MainMenu::set_technique()
     } while (n < 1 || n > allTechniques.size());
     selected_technique = allTechniques.at(n - 1);
 }
+
 void MainMenu::set_AT()
 {
     int a;
     AT.clear();
-    cout << "\n\nARRIVAL TIME:\nEnter number then hit enter each time:";
+    cout << "\n\nARRIVAL TIME:\nEnter number then hit enter each time:"
+         << "\nEnter a non-negative number ...\n";
     for (int i = 0; i < numProcess; i++)
     {
-        printLabel(i);
-        cin >> a;
+        do
+        {
+            printLabel(i);
+            cin >> a;
+        } while (a < 0);
         AT.push_back(a);
     }
 }
+
 void MainMenu::set_BT()
 {
     int a;
     BT.clear();
     cout << "\n\nBURST TIME:\nEnter number then hit enter each time:"
-    <<"\nEnter a number greater than zero...\n";
+         << "\nEnter a number greater than zero...\n";
     for (int i = 0; i < numProcess; i++)
     {
-        printLabel(i);
-        cin >> a;
+        do
+        {
+            printLabel(i);
+            cin >> a;
+        } while (a < 1);
         BT.push_back(a);
     }
 }
+
 void MainMenu::set_Prio()
 {
     int a;
     Priority.clear();
-    cout << "\n\nPRIORITY:\nEnter number then hit enter each time:";
+    cout << "\n\nPRIORITY:\nEnter number then hit enter each time:"
+         << "\nEnter a number greater than zero...\n";
     for (int i = 0; i < numProcess; i++)
     {
-        printLabel(i);
-        cin >> a;
+        do
+        {
+            printLabel(i);
+            cin >> a;
+        } while (a < 1);
         Priority.push_back(a);
     }
 }
+
 void MainMenu::set_TQ()
 {
-    cout << "\n\n SET TIME QUANTUM: "
-    <<"\nEnter a number greater than zero...\n";
-    cin >> TQ;
+    do
+    {
+        cout << "\n\n SET TIME QUANTUM: "
+             << "\nNOTE: Enter a number greater than zero...\n";
+        cin >> TQ;
+    } while (TQ < 1);
 }
+
 //changes numProcess in class MainMenu
 void MainMenu::set_num_p()
 {
