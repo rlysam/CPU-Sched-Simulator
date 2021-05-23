@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    const int MIN = 3;
+    const int MIN = 5;
     int ans = 1; //on
     int x = -1;
     MainMenu my_objct; //MainMenu
@@ -53,8 +53,12 @@ int main()
             if (x == 1) //FCFS
             {
                 fcfs1 = FCFS(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT()); //contruct using my_object return data
-                fcfs1.displayTable();
-                fcfs1.displayGanttChart();
+                fcfs1.displayTable(); //! replace with something that will just generate and not display...
+                fcfs1.displayGanttChart();//! then getter will pass the generated values to display class for output...
+                //* accepts pid, technique ,AT,BT,ST,ET,RT,TT, and WT
+                //! sample
+                disp(fcfs1.getvGC); display constructor (AT,BT,chart)
+                //! sample
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
@@ -66,24 +70,25 @@ int main()
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
-            else if (x == 3) //SRTF
+            // else if (x == 3) //SRTF
             {
                 srtf1 = SRTF(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT());
                 srtf1.displayTable();//*activate after vGC is gtg
-                srtf1.displayGanttChart();//!first to debug
+                srtf1.displayGanttChart();
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
             else if (x == 4) {//NPP
-                //!passed inherited from FCFS
                 npp1 = NPP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(),my_objct.getPriority()); //contruct using my_object return data
                 npp1.displayTable();
                 npp1.displayGanttChart();
+                //! sample
+                disp(npp1.getvGC); display constructor (AT,BT,chart, pt) get from NPP class and gantt chart
+                //! sample
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
             else if (x == 5) {//PP
-                //!passed inherited from NPP
                 pp1 = PP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(),my_objct.getPriority()); 
                 pp1.displayTable();
                 pp1.displayGanttChart();
@@ -92,7 +97,7 @@ int main()
             }
             else if (x == 6) {//PP
                 rr1 = RR(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getTQ()); //contruct using my_object return data
-                rr1.displayTable();//! BUG
+                rr1.displayTable();
                 rr1.displayGanttChart();
                 cout << "\n\nPress any key to continue...";
                 getch();
@@ -119,9 +124,4 @@ int main()
         }
     }
     return 0;
-}
-
-//comparison(?)
-void runTechnique(int n)
-{
 }
