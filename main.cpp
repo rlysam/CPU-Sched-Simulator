@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    const int MIN = 5;
+    const int MIN = 3;
     int ans = 1; //on
     int x = -1;
     MainMenu my_objct; //MainMenu
