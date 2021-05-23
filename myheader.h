@@ -114,11 +114,19 @@ public:
 
 class SRTF : public SJF
 {
+protected:
+    std::vector<int> copyBT;
+
 public:
     //cons
     SRTF();
     SRTF(int n, std::vector<int> Arrival, std::vector<int> Burst); //COPY ng FCFS constructor -> pinalitan lang yung class name sa dulo...
     void fillGanttChart();
+    // int shortest();
+    int remaining_BToFx(int x);
+    void addToReadyQueue();
+    int stillContinue();
+
 };
 
 class NPP : public FCFS
@@ -152,7 +160,7 @@ class RR : public FCFS
 protected:
     bool first = true;
     int TQ;
-    bool idle = false;//kapag nag daan sa idle time, magiging true:wall
+    bool idle = false; //kapag nag daan sa idle time, magiging true:wall
 
 public:
     //cons
@@ -161,5 +169,5 @@ public:
 
     void fillGanttChart();
     void addToReadyQueue();
-    int remaining_BToFx(int x);
+    virtual int remaining_BToFx(int x);
 };

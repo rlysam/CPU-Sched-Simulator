@@ -56,7 +56,6 @@ int RR::remaining_BToFx(int x)
 {
     int count = 0;
     int y = getOriginalIndex(x);
-
     for (int i = 0; i < vGanntChart.size(); i++)
     {
         if ((PID[y]).compare(vGanntChart.at(i)) == 0)
