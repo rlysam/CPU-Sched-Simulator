@@ -146,7 +146,6 @@ int FCFS::firstToCome()
 }
 
 //! PASSED
-// ? rename insertProcess(?)
 // Fill Gantt Chart lang... implement idle time solution here...
 void FCFS::fillGanttChart()
 {
@@ -189,6 +188,7 @@ void FCFS::generateSTET()
         ET.push_back(n + 1);
     }
 }
+
 //[FCFS] ST, ET, TT, WT, RT //expression para makuha
 void FCFS::generateFive()
 {
@@ -201,36 +201,11 @@ void FCFS::generateFive()
     }
 }
 
-//? do i need to make generateFive() a virtual class? --- does the formula for TT,WT,RT ever change?
-
-//decoratives
-void FCFS::printTable()
-{
-    cout << "Process\tCPU BT\tAT\tST\tET\tRT\tTT\tWT\n\n";
-    for (int i = 0; i < PID.size(); i++)
-    {
-        cout << PID[i] << "\t" << BT[i] << "\t" << AT[i] << "\t"
-             << ST[i] << "\t" << ET[i] << "\t"
-             << RT[i] << "\t"
-             << TT[i] << "\t"
-             << WT[i] << "\t" << endl;
-    }
-}
-
 void FCFS::displayTable()
 {
     generatePID();    //taena awit
     fillGanttChart(); //generate Gantt Chart
     generateFive();   //Generate yung table
-    printTable();     //print sa console yung table
 }
 
-// make this colored, itong nasa base class lang yung gagalawin
-void FCFS::displayGanttChart()
-{
-    cout << "---GANTT CHART---\n\n|";
-    for (int i = 0; i < vGanntChart.size(); i++)
-    {
-        cout << vGanntChart[i] << " | ";
-    }
-}
+// * GETTER ng ST, ET, RT, TT, WT

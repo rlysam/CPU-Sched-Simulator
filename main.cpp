@@ -53,9 +53,13 @@ int main()
             my_objct.set_TQ();
             break;
         case '0': //FINALIZE
+
             {
                 //lagay dito yung pag construct sa lahat ng techniques regardless of ano pinili
+                //! ditona 
+                //? lalagay yung pag create ng object na may values galing sa my_object
             }
+
             system("cls");
             x = my_objct.finalize();
 

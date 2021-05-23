@@ -89,11 +89,8 @@ public:
 
     void generateSTET();
     void generateFive();
-    virtual void printTable();
 
-    //itong dalawa lang ang kailangan tawagin sa main() after mag gawa ng con...
-    void displayTable();
-    virtual void displayGanttChart();
+    void generateValues();//para ma generate values based on Gantt Chart
 };
 
 //inherit SRTF from here...
@@ -153,7 +150,6 @@ public:
     //modified for searching Priority...
     int getOriginalIndex(int n);
     int firstToCome();
-    void printTable(); //added priority
 };
 
 class PP : public NPP
