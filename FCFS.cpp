@@ -149,7 +149,7 @@ int FCFS::firstToCome()
 // Fill Gantt Chart lang... implement idle time solution here...
 void FCFS::fillGanttChart()
 {
-    while (stillContinue()!=0) //starts at time 0
+    while (stillContinue() != 0) //starts at time 0
     {
         addToReadyQueue();
         removeFromReadQueue();
@@ -201,11 +201,57 @@ void FCFS::generateFive()
     }
 }
 
-void FCFS::displayTable()
+void FCFS::generateValues()
 {
-    generatePID();    //taena awit
+    generatePID();    //PID MUNA //! IMPORTANT
     fillGanttChart(); //generate Gantt Chart
     generateFive();   //Generate yung table
 }
 
-// * GETTER ng ST, ET, RT, TT, WT
+// * GETTER ng PID, ST, ET, RT, TT, WT
+// * Now, every time you want to get PID, ST, ET, RT, TT, or WT... call generateValues() first.
+
+// ? USE POINTERS to return multiple values from one Function
+// ? example: https://www.geeksforgeeks.org/how-to-return-multiple-values-from-a-function-in-c-or-cpp/
+
+vector<string> FCFS::getGC()
+{
+    generateValues();
+    return vGanntChart;
+}
+
+vector<string> FCFS::getPID()
+{
+    generateValues();
+    return PID;
+}
+
+vector<int> FCFS::getST()
+{
+    generateValues();
+    return ST;
+}
+
+vector<int> FCFS::getET()
+{
+    generateValues();
+    return ET;
+}
+
+vector<int> FCFS::getRT()
+{
+    generateValues();
+    return RT;
+}
+
+vector<int> FCFS::getTT()
+{
+    generateValues();
+    return TT;
+}
+
+vector<int> FCFS::getWT()
+{
+    generateValues();
+    return WT;
+}

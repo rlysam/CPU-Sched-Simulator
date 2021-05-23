@@ -90,7 +90,16 @@ public:
     void generateSTET();
     void generateFive();
 
-    void generateValues();//para ma generate values based on Gantt Chart
+    void generateValues();
+    //GETTERS
+    // * GETTER ng gannt chart, PID, ST, ET, RT, TT, WT
+    std::vector<std::string> getGC();
+    std::vector<std::string> getPID();
+    std::vector<int> getST();
+    std::vector<int> getET();
+    std::vector<int> getRT();
+    std::vector<int> getTT();
+    std::vector<int> getWT();
 };
 
 //inherit SRTF from here...
