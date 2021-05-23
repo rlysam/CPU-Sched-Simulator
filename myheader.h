@@ -1,14 +1,14 @@
 #pragma once
 // // using namespace std;
-// class Display
-// {
-//     //may constructor na hinihingi lahat...
-//     //last argument is which technique coming from MainMenu class
-//     Display();                                                                                      //default
-//     Display(int pnum, std::vector<int> Arrival, std::vector<int> Burst);                            //FCFS, SJF, SRTF
-//     Display(int pnum, std::vector<int> Arrival, std::vector<int> Burst, std::vector<int> Priority); //NPP, PP
-//     Display(int pnum, std::vector<int> Arrival, std::vector<int> Burst, int TQ);                    //RR
-// };
+class Display
+{
+    //may constructor na hinihingi lahat...
+    //last argument is which technique coming from MainMenu class
+    Display();                                                                                      //default
+    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
+    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> PR, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
+    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, int TQ, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
+};
 
 class MainMenu
 {
