@@ -17,6 +17,13 @@ using namespace std;
 SJF::SJF() {}
 SJF::SJF(int n, vector<int> Arrival, vector<int> Burst) : FCFS(n, Arrival, Burst) {} //COPY ng FCFS constructor -> pinalitan lang yung class name sa dulo...
 
+// void SJF::generateValues()
+// {
+//     generatePID();    //PID MUNA //! IMPORTANT
+//     fillGanttChart(); //generate Gantt Chart
+//     generateFive();   //Generate yung table
+// }
+
 // virtual function in base class
 //* Gawin nalang non-preemtive sa part na to yung SJf..
 void SJF::fillGanttChart()

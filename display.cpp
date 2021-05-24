@@ -8,11 +8,11 @@
 
 using namespace std;
 
-Display::Display() {}
-
+//! BUG --- FCFS lang ginagawa...
 //FCFS, SJF, SRTF
 //* accepts Gantt Chart, pid, technique ,AT,BT,ST,ET,RT,TT, and WT
-Display::Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT)
+Display::Display(vector<string> GanttChart, vector<string> PID, string technique, 
+vector<int> AT, vector<int> BT, vector<int> ST, vector<int> ET, vector<int> RT, vector<int> TT, vector<int> WT)
 {
 
     //ito yung table...
@@ -27,7 +27,7 @@ Display::Display(std::vector<std::string> GanttChart, std::vector<std::string> P
     }
 
     //gantt chart yung dati ::: palitan 'to ng BAR BAR
-    cout << "---GANTT CHART---\n\n|";
+    cout << "\n\n---GANTT CHART---\n\n|";
     for (int i = 0; i < GanttChart.size(); i++)
     {
         cout << GanttChart[i] << " | ";

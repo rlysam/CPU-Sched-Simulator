@@ -17,6 +17,7 @@ FCFS::FCFS(int n, std::vector<int> Arrival, std::vector<int> Burst)
     np = n;
     AT = Arrival;
     BT = Burst;
+    // generateValues();
 }
 FCFS::FCFS() {}
 //generate lang [P1..Pn]
@@ -214,44 +215,41 @@ void FCFS::generateValues()
 // ? USE POINTERS to return multiple values from one Function
 // ? example: https://www.geeksforgeeks.org/how-to-return-multiple-values-from-a-function-in-c-or-cpp/
 
+
+
+// * SAFE
+
 vector<string> FCFS::getGC()
 {
-    generateValues();
     return vGanntChart;
 }
 
 vector<string> FCFS::getPID()
 {
-    generateValues();
     return PID;
 }
 
 vector<int> FCFS::getST()
 {
-    generateValues();
     return ST;
 }
 
 vector<int> FCFS::getET()
 {
-    generateValues();
     return ET;
 }
 
 vector<int> FCFS::getRT()
 {
-    generateValues();
     return RT;
 }
 
 vector<int> FCFS::getTT()
 {
-    generateValues();
     return TT;
 }
 
 vector<int> FCFS::getWT()
 {
-    generateValues();
     return WT;
 }

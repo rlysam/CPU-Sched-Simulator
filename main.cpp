@@ -58,12 +58,6 @@ int main()
         case '0': //FINALIZE
 
             //* Construct all
-            fcfs1 = FCFS(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT());
-            sjf1 = SJF(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT()); //contruct using my_object return data
-            srtf1 = SRTF(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT());
-            npp1 = NPP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getPriority()); //contruct using my_object return data
-            pp1 = PP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getPriority());
-            rr1 = RR(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getTQ()); //contruct using my_object return data
 
             system("cls");
             x = my_objct.finalize(); //hahanapin lang kung anong Technique ang pinili...
@@ -71,39 +65,51 @@ int main()
             if (x == 1) //FCFS
             {
                 //Displays Table & Gantt Chart
-                disp = Display(fcfs1.getGC(),fcfs1.getPID(),my_objct.getTechnique(),my_objct.getAT(), my_objct.getBT(),fcfs1.getST(),fcfs1.getET(),fcfs1.getRT(),fcfs1.getTT(),fcfs1.getWT());
+                fcfs1 = FCFS(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT());
+                fcfs1.generateValues();
+                disp = Display(fcfs1.getGC(), fcfs1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), fcfs1.getST(), fcfs1.getET(), fcfs1.getRT(), fcfs1.getTT(), fcfs1.getWT());
                 cout
                     << "\n\nPress any key to continue...";
                 getch();
             }
             else if (x == 2) //SJF
             {
-                disp = Display(sjf1.getGC(),sjf1.getPID(),my_objct.getTechnique(),my_objct.getAT(), my_objct.getBT(),sjf1.getST(),sjf1.getET(),sjf1.getRT(),sjf1.getTT(),sjf1.getWT());
+                sjf1 = SJF(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT()); //contruct using my_object return data
+                sjf1.generateValues();
+                disp = Display(sjf1.getGC(), sjf1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), sjf1.getST(), sjf1.getET(), sjf1.getRT(), sjf1.getTT(), sjf1.getWT());
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
             else if (x == 3) //SRTF
             {
-                disp = Display(srtf1.getGC(),srtf1.getPID(),my_objct.getTechnique(),my_objct.getAT(), my_objct.getBT(),srtf1.getST(),srtf1.getET(),srtf1.getRT(),srtf1.getTT(),srtf1.getWT());
+                srtf1 = SRTF(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT());
+                srtf1.generateValues();
+                disp = Display(srtf1.getGC(), srtf1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), srtf1.getST(), srtf1.getET(), srtf1.getRT(), srtf1.getTT(), srtf1.getWT());
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
-            else if (x == 4)//NPP
-            { 
-                disp = Display(npp1.getGC(),npp1.getPID(),my_objct.getTechnique(),my_objct.getAT(), my_objct.getBT(),npp1.getPR(),npp1.getST(),npp1.getET(),npp1.getRT(),npp1.getTT(),npp1.getWT());
+            else if (x == 4) //NPP
+            {
+                npp1 = NPP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getPriority()); //contruct using my_object return data
+                npp1.generateValues();
+                disp = Display(npp1.getGC(), npp1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), npp1.getPR(), npp1.getST(), npp1.getET(), npp1.getRT(), npp1.getTT(), npp1.getWT());
                 cout
                     << "\n\nPress any key to continue...";
                 getch();
             }
             else if (x == 5)
             { //PP
-                disp = Display(pp1.getGC(),pp1.getPID(),my_objct.getTechnique(),my_objct.getAT(), my_objct.getBT(),pp1.getPR(),pp1.getST(),pp1.getET(),pp1.getRT(),pp1.getTT(),pp1.getWT());
+                pp1 = PP(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getPriority());
+                pp1.generateValues();
+                disp = Display(pp1.getGC(), pp1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), pp1.getPR(), pp1.getST(), pp1.getET(), pp1.getRT(), pp1.getTT(), pp1.getWT());
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
             else if (x == 6)
-            { //RR
-                disp = Display(rr1.getGC(),rr1.getPID(),my_objct.getTechnique(),my_objct.getAT(), my_objct.getBT(), my_objct.getTQ(), rr1.getST(),rr1.getET(),rr1.getRT(),rr1.getTT(),rr1.getWT());
+            {                                                                                             //RR
+                rr1 = RR(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getTQ()); //contruct using my_object return data
+                rr1.generateValues();
+                disp = Display(rr1.getGC(), rr1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), my_objct.getTQ(), rr1.getST(), rr1.getET(), rr1.getRT(), rr1.getTT(), rr1.getWT());
                 cout << "\n\nPress any key to continue...";
                 getch();
             }
