@@ -11,7 +11,7 @@ using namespace std;
 Display::Display() {}
 
 //FCFS, SJF, SRTF
-//* accepts gantt chart, pid, technique ,AT,BT,ST,ET,RT,TT, and WT
+//* accepts Gantt Chart, pid, technique ,AT,BT,ST,ET,RT,TT, and WT
 Display::Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT)
 {
 

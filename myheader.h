@@ -4,7 +4,8 @@ class Display
 {
     //may constructor na hinihingi lahat...
     //last argument is which technique coming from MainMenu class
-    Display();                                                                                      //default
+    public:
+    Display(){};                                                                                      //default
     Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
     Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> PR, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
     Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, int TQ, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
@@ -42,6 +43,7 @@ public:
 
     //Returns data from
     int getNumProcess() { return numProcess; }          //#process
+    std::string getTechnique() { return selected_technique; }             //mga AT
     std::vector<int> getAT() { return AT; }             //mga AT
     std::vector<int> getBT() { return BT; }             //mga BT
     std::vector<int> getPriority() { return Priority; } //mga Priority
@@ -147,7 +149,7 @@ public:
 class NPP : public FCFS
 {
 protected:
-    std::vector<int> PT;          //Equivalent sa "BT"
+    std::vector<int> PT;          //Priority
     std::vector<std::string> BIP; //Equivalent sa "JUTS"
 public:
     NPP(); //default
@@ -159,6 +161,7 @@ public:
     //modified for searching Priority...
     int getOriginalIndex(int n);
     int firstToCome();
+    std::vector<int> getPR() { return PT; }             //mga AT
 };
 
 class PP : public NPP
