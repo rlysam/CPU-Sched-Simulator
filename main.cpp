@@ -110,9 +110,9 @@ int main()
                 rr1 = RR(my_objct.getNumProcess(), my_objct.getAT(), my_objct.getBT(), my_objct.getTQ()); //contruct using my_object return data
                 rr1.generateValues();
                 //bali ito lalagay lang yung values sa variables ng disp, tapos ...
-                Display disp = Display(rr1.getGC(), rr1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), my_objct.getTQ(), rr1.getST(), rr1.getET(), rr1.getRT(), rr1.getTT(), rr1.getWT());
-                //disp.displayTable();
-                //disp.displayGC();
+                Display disp = Display(rr1.getGC(), rr1.getPID(), my_objct.getTechnique(), my_objct.getAT(), my_objct.getBT(), my_objct.getPriority() ,my_objct.getTQ(), rr1.getST(), rr1.getET(), rr1.getRT(), rr1.getTT(), rr1.getWT());
+                disp.displayTable();
+                disp.displayGC();
                 cout << "\n\nPress any key to continue...";
                 getch();
             }

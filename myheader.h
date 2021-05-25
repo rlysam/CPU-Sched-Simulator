@@ -1,16 +1,34 @@
 #pragma once
-// // using namespace std;
+
 class Display
 {
-    //may constructor na hinihingi lahat...
-    //last argument is which technique coming from MainMenu class
+protected:
+    std::vector<std::string> GanttChart;
+    std::vector<std::string> PID;
+    std::string technique;
+    std::vector<int> AT;
+    std::vector<int> BT;
+    std::vector<int> PR;
+    int TQ=1;
+    std::vector<int> ST;
+    std::vector<int> ET;
+    std::vector<int> RT;
+    std::vector<int> TT;
+    std::vector<int> WT;
+
+    double rtSum = 0;
+    double ttSum = 0;
+    double wtSum = 0;
+
 public:
     Display(){}; //default
-    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
-    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> PR, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
-    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, int TQ, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
+    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> PR, int TQ,
+            std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
     //! IAN
-    int find(std::vector <std::string> comparer,std::vector<std::string> comparee);
+    // int find(std::vector <std::string> comparer,std::vector<std::string> comparee);
+    //! SAM
+    void displayTable();
+    void displayGC();
 };
 
 class MainMenu
@@ -99,13 +117,13 @@ public:
     void generateValues();
     //GETTERS
     // * GETTER ng gannt chart, PID, ST, ET, RT, TT, WT
-     std::vector<std::string> getGC();
-     std::vector<std::string> getPID();
-     std::vector<int> getST();
-     std::vector<int> getET();
-     std::vector<int> getRT();
-     std::vector<int> getTT();
-     std::vector<int> getWT();
+    std::vector<std::string> getGC();
+    std::vector<std::string> getPID();
+    std::vector<int> getST();
+    std::vector<int> getET();
+    std::vector<int> getRT();
+    std::vector<int> getTT();
+    std::vector<int> getWT();
 };
 
 //inherit SRTF from here...
