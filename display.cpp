@@ -41,7 +41,7 @@ void Display::displayAverages(string name)
     cout << "\t" << rtSum / PID.size();
     cout << "\t" << ttSum / PID.size();
     cout << "\t" << wtSum / PID.size();
-    cout << "\t"<< "---"<<name ;cout<< endl;
+    cout << "\t"<< "---"<<name ;
 }
 
 

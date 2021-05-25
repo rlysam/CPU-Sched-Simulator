@@ -144,11 +144,10 @@ int main()
                          << endl;
                 }
 
+                cout<<"\t\tRT\tTT\tWT"<<endl;
                 for (int i = 0; i < compares.size(); i++)
                 {
-                    disp[compares[i] - 1].displayAverages(b[compares[i] - 1]);
-                    cout << endl
-                         << endl;
+                    disp[compares[i] - 1].displayAverages(b[compares[i] - 1]); cout << endl;
                 }
                 cout << "\n\nEnd of comparison. Press Enter to conitnue...";
                 getch();
@@ -180,7 +179,8 @@ int compareBa()
     do
     {
         cout << "Do you want to compare? [y/n]";
-        cin>>ans2 ;
+        ans2 = getch();
+        // cin>>ans2 ;
         // (char)tolower(ans2);
         if (ans2 == 'y' || ans2 == 'n')
             go = false;
@@ -199,15 +199,15 @@ vector<int> whichOnes(vector<string> allTech)
 
     vector<int> these;
     int numComp;
-    bool go = true;
+    int go = 1;
     //ask how many
     cout << "How many? This many: ";
     do
     {
         cin >> numComp;
         if (numComp > 0 && numComp < 7)
-            go = false;
-    } while (go);
+            go = 0;
+    } while (go == 1);
 
     for (int i = 0; i < allTech.size(); i++)
     {
@@ -215,22 +215,26 @@ vector<int> whichOnes(vector<string> allTech)
     }
     // cout << endl
     //      << endl;
-    cout<<"\n\nCompare "<<numComp;
+    cout<<"\n\nCompare "<<numComp <<"...";
+    int j;
     cout << "\n\n Type number of corresponding PID\n\n";
     for (int i = 0; i < numComp; i++)
     {
-        go = true;
+        go = 1;
         cout << i + 1 << ".)";
 
         do
         {
-            cin >> numComp;
-            if (numComp > 0 && numComp < 7) // and not not a duplicate
-                go = false;
-        } while (go);
+            cin >> j;
+            // j = getch();//!ayaw
+            if (j > 0 && j < 7) // and not not a duplicate
+                go = 0;
+        } while (go == 1);
 
-        these.push_back(numComp); //magiging int yung char... SANA
+        these.push_back(j); //magiging int yung char... SANA
         cout << endl;
     }
+    cout<<these.size();
+    getch();
     return these;
 }
