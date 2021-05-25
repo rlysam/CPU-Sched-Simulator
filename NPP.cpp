@@ -137,17 +137,3 @@ int NPP::getOriginalIndex(int n)
     it = std::find(PID.begin(), PID.end(), BIP[n]);
     return it - PID.begin();
 }
-
-//decoratives
-void NPP::printTable()
-{
-    cout << "Process\tAT\tCPU BT\tPriority\tST\tET\tRT\tTT\tWT\n\n";
-    for (int i = 0; i < PID.size(); i++)
-    {
-        cout << PID[i]<< "\t"  << AT[i] << "\t" << BT[i] << "\t" << PT[i]<< "\t\t"
-             << ST[i] << "\t" << ET[i] << "\t"
-             << RT[i] << "\t"
-             << TT[i] << "\t"
-             << WT[i] << "\t" << endl;
-    }
-}

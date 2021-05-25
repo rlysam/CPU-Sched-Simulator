@@ -17,6 +17,7 @@ FCFS::FCFS(int n, std::vector<int> Arrival, std::vector<int> Burst)
     np = n;
     AT = Arrival;
     BT = Burst;
+    // generateValues();
 }
 FCFS::FCFS() {}
 //generate lang [P1..Pn]
@@ -146,11 +147,10 @@ int FCFS::firstToCome()
 }
 
 //! PASSED
-// ? rename insertProcess(?)
 // Fill Gantt Chart lang... implement idle time solution here...
 void FCFS::fillGanttChart()
 {
-    while (stillContinue()!=0) //starts at time 0
+    while (stillContinue() != 0) //starts at time 0
     {
         addToReadyQueue();
         removeFromReadQueue();
@@ -189,6 +189,7 @@ void FCFS::generateSTET()
         ET.push_back(n + 1);
     }
 }
+
 //[FCFS] ST, ET, TT, WT, RT //expression para makuha
 void FCFS::generateFive()
 {
@@ -201,36 +202,54 @@ void FCFS::generateFive()
     }
 }
 
-//? do i need to make generateFive() a virtual class? --- does the formula for TT,WT,RT ever change?
-
-//decoratives
-void FCFS::printTable()
+void FCFS::generateValues()
 {
-    cout << "Process\tCPU BT\tAT\tST\tET\tRT\tTT\tWT\n\n";
-    for (int i = 0; i < PID.size(); i++)
-    {
-        cout << PID[i] << "\t" << BT[i] << "\t" << AT[i] << "\t"
-             << ST[i] << "\t" << ET[i] << "\t"
-             << RT[i] << "\t"
-             << TT[i] << "\t"
-             << WT[i] << "\t" << endl;
-    }
-}
-
-void FCFS::displayTable()
-{
-    generatePID();    //taena awit
+    generatePID();    //PID MUNA //! IMPORTANT
     fillGanttChart(); //generate Gantt Chart
     generateFive();   //Generate yung table
-    printTable();     //print sa console yung table
 }
 
-// make this colored, itong nasa base class lang yung gagalawin
-void FCFS::displayGanttChart()
+// * GETTER ng PID, ST, ET, RT, TT, WT
+// * Now, every time you want to get PID, ST, ET, RT, TT, or WT... call generateValues() first.
+
+// ? USE POINTERS to return multiple values from one Function
+// ? example: https://www.geeksforgeeks.org/how-to-return-multiple-values-from-a-function-in-c-or-cpp/
+
+
+
+// * SAFE
+
+vector<string> FCFS::getGC()
 {
-    cout << "---GANTT CHART---\n\n|";
-    for (int i = 0; i < vGanntChart.size(); i++)
-    {
-        cout << vGanntChart[i] << " | ";
-    }
+    return vGanntChart;
+}
+
+vector<string> FCFS::getPID()
+{
+    return PID;
+}
+
+vector<int> FCFS::getST()
+{
+    return ST;
+}
+
+vector<int> FCFS::getET()
+{
+    return ET;
+}
+
+vector<int> FCFS::getRT()
+{
+    return RT;
+}
+
+vector<int> FCFS::getTT()
+{
+    return TT;
+}
+
+vector<int> FCFS::getWT()
+{
+    return WT;
 }

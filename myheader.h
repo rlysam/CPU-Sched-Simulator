@@ -1,13 +1,35 @@
 #pragma once
-// // using namespace std;
+
 class Display
 {
-    //may constructor na hinihingi lahat...
-    //last argument is which technique coming from MainMenu class
-    Display();                                                                                      //default
-    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
-    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> PR, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
-    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, int TQ, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
+protected:
+    std::vector<std::string> GanttChart;
+    std::vector<std::string> PID;
+    std::string technique;
+    std::vector<int> AT;
+    std::vector<int> BT;
+    std::vector<int> PR;
+    int TQ=1;
+    std::vector<int> ST;
+    std::vector<int> ET;
+    std::vector<int> RT;
+    std::vector<int> TT;
+    std::vector<int> WT;
+
+    double rtSum = 0;
+    double ttSum = 0;
+    double wtSum = 0;
+
+public:
+    Display(){}; //default
+    Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> PR, int TQ,
+            std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
+    //! IAN
+    // int find(std::vector <std::string> comparer,std::vector<std::string> comparee);
+    //! SAM
+    void displayTable();
+    void displayGC();
+    void displayAverages(std::string name);
 };
 
 class MainMenu
@@ -37,15 +59,20 @@ public:
     void set_TQ();
     void set_num_p();
     void printLabel(int i);
+    void gotoxy(int x, int y);
 
     std::string anongTechnique() { return selected_technique; } //for switch statement
 
     //Returns data from
-    int getNumProcess() { return numProcess; }          //#process
-    std::vector<int> getAT() { return AT; }             //mga AT
-    std::vector<int> getBT() { return BT; }             //mga BT
-    std::vector<int> getPriority() { return Priority; } //mga Priority
-    int getTQ() { return TQ; }                          //yung Time Quantum ni Ian
+
+    //gets all tecniques lang..
+    std::vector<std::string> getAllTech() { return allTechniques; } //mga AT
+    int getNumProcess() { return numProcess; }                //#process
+    std::string getTechnique() { return selected_technique; } //mga AT
+    std::vector<int> getAT() { return AT; }                   //mga AT
+    std::vector<int> getBT() { return BT; }                   //mga BT
+    std::vector<int> getPriority() { return Priority; }       //mga Priority
+    int getTQ() { return TQ; }                                //yung Time Quantum ni Ian
 
     //return int of corresponding technique. Ex. FCFS = 1..., RR = 6
     int finalize();
@@ -89,11 +116,18 @@ public:
 
     void generateSTET();
     void generateFive();
-    virtual void printTable();
 
-    //itong dalawa lang ang kailangan tawagin sa main() after mag gawa ng con...
-    void displayTable();
-    virtual void displayGanttChart();
+    // virtual void generateValues();
+    void generateValues();
+    //GETTERS
+    // * GETTER ng gannt chart, PID, ST, ET, RT, TT, WT
+    std::vector<std::string> getGC();
+    std::vector<std::string> getPID();
+    std::vector<int> getST();
+    std::vector<int> getET();
+    std::vector<int> getRT();
+    std::vector<int> getTT();
+    std::vector<int> getWT();
 };
 
 //inherit SRTF from here...
@@ -120,6 +154,7 @@ public:
     int alreadyExists(int n); //ginamit ko sa shortest() -- second part
 
     void fillGanttChart();
+    // void generateValues();
 };
 
 class SRTF : public SJF
@@ -141,7 +176,7 @@ public:
 class NPP : public FCFS
 {
 protected:
-    std::vector<int> PT;          //Equivalent sa "BT"
+    std::vector<int> PT;          //Priority
     std::vector<std::string> BIP; //Equivalent sa "JUTS"
 public:
     NPP(); //default
@@ -153,7 +188,7 @@ public:
     //modified for searching Priority...
     int getOriginalIndex(int n);
     int firstToCome();
-    void printTable(); //added priority
+    std::vector<int> getPR() { return PT; } //mga AT
 };
 
 class PP : public NPP
