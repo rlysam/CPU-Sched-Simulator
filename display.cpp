@@ -31,6 +31,20 @@ Display::Display(vector<string> GanttChart, vector<string> PID, string technique
     this->WT = WT;
 }
 
+//for comparison only
+void Display::displayAverages(string name)
+{
+    // ! AVERAGE
+    cout << fixed;
+    cout << setprecision(2);
+    cout << "Average: ";
+    cout << "\t" << rtSum / PID.size();
+    cout << "\t" << ttSum / PID.size();
+    cout << "\t" << wtSum / PID.size();
+    cout << "\t"<< "---"<<name ;cout<< endl;
+}
+
+
 void Display::displayTable()
 {
     // ! TABLE

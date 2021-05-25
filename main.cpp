@@ -7,19 +7,18 @@
 
 using namespace std;
 
-void constructAll();
+// void constructAll();
+int compareBa();
+vector<int> whichOnes(vector<string> allTech);
 
 int main()
 {
     const int MIN = 3;
     int x = -1;
-
-    int numComp;
-    vector<int> compares;
-
     MainMenu obj; //MainMenu
     Display disp[6];
-
+    vector<int> compares;
+    char ans = 1;
     FCFS fcfs1;
     SJF sjf1;
     SRTF srtf1;
@@ -124,10 +123,40 @@ int main()
             else
                 cout << "Something went wrong...";
 
-            cout << "\n\nPress any key to continue...";
+            cout << "Press enter to Continue...\n\n";
             getch();
             //? Do you want to compare? if(yes)
+            if (compareBa() == 1) //YES
+            {
+                auto b = obj.getAllTech();
+                system("cls");
+                compares = whichOnes(b);
+                system("cls");
+                // cout<<"compares size: ";
+                // cout<<compares.size();
+                getch();
 
+                for (int i = 0; i < compares.size(); i++)
+                {
+                    cout << b[compares[i] - 1];
+                    disp[compares[i] - 1].displayGC();
+                    cout << endl
+                         << endl;
+                }
+
+                for (int i = 0; i < compares.size(); i++)
+                {
+                    disp[compares[i] - 1].displayAverages(b[compares[i] - 1]);
+                    cout << endl
+                         << endl;
+                }
+                cout << "\n\nEnd of comparison. Press Enter to conitnue...";
+                getch();
+            } //exits finalize
+
+            system("cls");
+            cout << "...going back to MAIN MENU. Press enter...\n\n";
+            getch();
             break; //break case '0' (FINALIZE)
         case 'r':
             obj.reset(MIN); //3 minimum
@@ -144,34 +173,64 @@ int main()
     return 0;
 }
 
-// int compareBa()
-// {
-//     char ans2;
-//     do
-//     {
-//         cout << "Do you want to compare? [y/n]";
-//         ans2 = getch();
-//         (char)tolower(ans2);
-//         if (ans2 == 'y')
-//         {
-//             cout << "How";
-//         }
-//     } while (ans2 != 'y' || ans2 != 'n');
-    
-//     if (ans2 == 'y') {
-//         cout<<"\n\nHow many? Type: ";
-//         return getch();
-//     }
-//     else return 0;
-// }
+int compareBa()
+{
+    char ans2;
+    bool go = true;
+    do
+    {
+        cout << "Do you want to compare? [y/n]";
+        cin>>ans2 ;
+        // (char)tolower(ans2);
+        if (ans2 == 'y' || ans2 == 'n')
+            go = false;
 
-// vector<int> whichOnes(int n, vector<int> PID){
-//     vector<int> these;
+    } while (go);
 
-//     for (int i = 0; i < PID.size(); i++)
-//     {
-//         cout<<i+1<<" = "<<PID[i] <<endl;
-//     }
+    if (ans2 == 'y')
+        return 1;
+    else
+        return 0;
+}
 
-//    cout<<"\n\nPili ka ng " 
-// }
+//vector of int, kung ano ano didisplay
+vector<int> whichOnes(vector<string> allTech)
+{
+
+    vector<int> these;
+    int numComp;
+    bool go = true;
+    //ask how many
+    cout << "How many? This many: ";
+    do
+    {
+        cin >> numComp;
+        if (numComp > 0 && numComp < 7)
+            go = false;
+    } while (go);
+
+    for (int i = 0; i < allTech.size(); i++)
+    {
+        cout << i + 1 << " = " << allTech[i] << endl;
+    }
+    // cout << endl
+    //      << endl;
+    cout<<"\n\nCompare "<<numComp;
+    cout << "\n\n Type number of corresponding PID\n\n";
+    for (int i = 0; i < numComp; i++)
+    {
+        go = true;
+        cout << i + 1 << ".)";
+
+        do
+        {
+            cin >> numComp;
+            if (numComp > 0 && numComp < 7) // and not not a duplicate
+                go = false;
+        } while (go);
+
+        these.push_back(numComp); //magiging int yung char... SANA
+        cout << endl;
+    }
+    return these;
+}

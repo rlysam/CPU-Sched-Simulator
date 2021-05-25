@@ -29,6 +29,7 @@ public:
     //! SAM
     void displayTable();
     void displayGC();
+    void displayAverages(std::string name);
 };
 
 class MainMenu
@@ -63,6 +64,9 @@ public:
     std::string anongTechnique() { return selected_technique; } //for switch statement
 
     //Returns data from
+
+    //gets all tecniques lang..
+    std::vector<std::string> getAllTech() { return allTechniques; } //mga AT
     int getNumProcess() { return numProcess; }                //#process
     std::string getTechnique() { return selected_technique; } //mga AT
     std::vector<int> getAT() { return AT; }                   //mga AT
