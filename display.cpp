@@ -154,16 +154,44 @@ Display::Display(vector<string> GanttChart, vector<string> PID, string technique
 
     cout << "0";
     //* NUMBER    ----- Numbers below...
-    cout << " "; //Para may place yung 0
+    // cout << " "; //Para may place yung 0
+    string num;
+    int digits;
     for (int i = 0; i < GanttChart.size(); i++)
     {
+        num = to_string(i);
+        digits = num.size();
         if (GanttChart[i] != GanttChart[i + 1])
         {
-            cout << "  " << i + 1;
+
+            if (digits == 1)
+            {
+                cout << "  " << i + 1;
+            }
+            if (digits == 2)
+            {
+                cout << "  " << i + 1;
+            }
+            if (digits == 3)
+            {
+                cout << "" << i + 1;
+            }
         }
         else
         {
-            cout << "   ";
+
+            if (digits == 1)
+            {
+                cout << "   ";
+            }
+            if (digits == 2)
+            {
+                cout << "  ";
+            }
+            if (digits == 3)
+            {
+                cout << "";
+            }
         }
     }
 
