@@ -9,6 +9,8 @@ public:
     Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
     Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, std::vector<int> PR, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
     Display(std::vector<std::string> GanttChart, std::vector<std::string> PID, std::string technique, std::vector<int> AT, std::vector<int> BT, int TQ, std::vector<int> ST, std::vector<int> ET, std::vector<int> RT, std::vector<int> TT, std::vector<int> WT);
+    //! IAN
+    int find(std::vector <std::string> comparer,std::vector<std::string> comparee);
 };
 
 class MainMenu
